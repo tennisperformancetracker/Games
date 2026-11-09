@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>10K Tumble</title>
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<meta name="apple-mobile-web-app-title" content="10K Tumble">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#047857">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script>
+tailwind.config = {
+  future: { hoverOnlyWhenSupported: true },
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ['"Plus Jakarta Sans"', 'ui-sans-serif', 'system-ui', '-apple-system', '"Segoe UI"', 'sans-serif']
+      }
+    }
+  }
+};
+</script>
+<style>
+  :root {
+    box-sizing: border-box;
+    color-scheme: light;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); -webkit-text-size-adjust: 100%; }
+  *, *::before, *::after { box-sizing: inherit; }
+  body {
+    margin: 0;
+    background: #fafaf9;
+    color: #292524;
+    min-height: 100vh;
+    min-height: 100dvh;
+    font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: transparent;
+    overscroll-behavior-y: none;
+  }
+  button { font-family: inherit; touch-action: manipulation; -webkit-user-select: none; user-select: none; }
+  .tnum { font-variant-numeric: tabular-nums; }
+  .no-scrollbar { scrollbar-width: none; }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+
+  @keyframes tumble {
+    0%   { transform: translateY(0) rotate(0deg) scale(1); }
+    18%  { transform: translateY(-28px) rotate(-18deg) scale(1.06); }
+    36%  { transform: translateY(0) rotate(14deg) scale(1); }
+    54%  { transform: translateY(-13px) rotate(-8deg) scale(1.03); }
+    72%  { transform: translateY(0) rotate(4deg) scale(1); }
+    86%  { transform: translateY(-4px) rotate(-1deg); }
+    100% { transform: translateY(0) rotate(0deg) scale(1); }
+  }
+  .die-rolling {
+    animation: tumble 0.85s cubic-bezier(0.34, 0.1, 0.4, 1) backwards;
+    animation-delay: var(--d, 0ms);
+  }
+  @keyframes settle {
+    0%   { opacity: 0; transform: translateY(6px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  .settle { animation: settle 0.28s ease-out both; }
+  @keyframes bump {
+    0%   { transform: scale(1); }
+    40%  { transform: scale(1.07); }
+    100% { transform: scale(1); }
+  }
+  .bump { animation: bump 0.32s ease-out; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .die-rolling, .settle, .bump { animation: none !important; }
+  }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js"></script>
+<script>
+(function () {
+  'use strict';
+  var h = React.createElement;
+  var useState = React.useState, useEffect = React.useEffect;
+
+  /* ---------- constants ---------- */
+  var TARGET = 10000, ENTRY = 500, MAX_ROLLS = 3;
+  var COLOR_NAMES = ['red', 'yellow', 'green', 'blue', 'orange', 'purple'];
+  var DIE_LOOK = [
+    { light: '#ee6b5d', base: '#d6453a', edge: '#a92f26', pip: '#ffffff' },
+    { light: '#f8d65f', base: '#efbb26', edge: '#bf920f', pip: '#3a3631' },
+    { light: '#5fba7b', base: '#3b9559', edge: '#2a7344', pip: '#ffffff' },
+    { light: '#5f9fdd', base: '#3a79bd', edge: '#285d98', pip: '#ffffff' },
+    { light: '#f7a955', base: '#ec8628', edge: '#bd6713', pip: '#ffffff' },
+    { light: '#9a80e2', base: '#7656c2', edge: '#5a3e9f', pip: '#ffffff' }
+  ];
+  var PIPS = { 1: [4], 2: [0, 8], 3: [0, 4, 8], 4: [0, 2, 6, 8], 5: [0, 2, 4, 6, 8], 6: [0, 2, 3, 5, 6, 8] };
+  var ROLL_MS = 1000;
+  var ZERO = [0, 0, 0, 0, 0, 0, 0];
+
+  function fmt(n) { return Number(n).toLocaleString('en-US'); }
+  function rnd() { return 1 + Math.floor(Math.random() * 6); }
+
+  /* ---------- scoring ---------- */
+  function faceScore(f, n) {
+    if (f === 1) return [0, 100, 200, 1000, 2000, 3000, 4000][n];
+    if (f === 5) return [0, 50, 100, 500, 1500, 2500, 3500][n];
+    if (n < 3) return 0;
+    if (n === 3) return f * 100;
+    return [0, 0, 0, 0, 1500, 2500, 3500][n];
+  }
+  function cScore(c) {
+    var s = 0, f, ones = 0, pairs = 0;
+    for (f = 1; f <= 6; f++) {
+      s += faceScore(f, c[f]);
+      if (c[f] === 1) ones++; else if (c[f] === 2) pairs++;
+    }
+    if (ones === 6) s = Math.max(s, 5000);
+    else if (pairs === 3) s = Math.max(s, 1250);
+    return s;
+  }
+  function countsOf(vals) {
+    var c = ZERO.slice();
+    vals.forEach(function (v) { c[v]++; });
+    return c;
+  }
+  function sum7(c) { return c[1] + c[2] + c[3] + c[4] + c[5] + c[6]; }
+  // Score of a pool of dice [{id, value}]. Sets, three pairs, straight and rainbow all pool across rolls.
+  function poolScore(dice) {
+    var s = cScore(countsOf(dice.map(function (d) { return d.value; })));
+    if (dice.length === 6) {
+      var sp = specialOf(dice);
+      if (sp && sp.score > s) s = sp.score;
+    }
+    return s;
+  }
+
+  // Six-dice combos: straight, three pairs, and the color-matched rainbow
+  function specialOf(dice) {
+    if (dice.length !== 6) return null;
+    if (dice.every(function (d) { return d.value === d.id + 1; })) return { name: 'Rainbow', score: 10000 };
+    var c = countsOf(dice.map(function (d) { return d.value; }));
+    var ones = 0, pairs = 0;
+    for (var i = 1; i <= 6; i++) { if (c[i] === 1) ones++; if (c[i] === 2) pairs++; }
+    if (ones === 6) return { name: 'Straight', score: 5000 };
+    if (pairs === 3) return { name: 'Three pairs', score: 1250 };
+    return null;
+  }
+
+  // Evaluate the currently selected dice on top of what is already held
+  function selInfo(held, dice) {
+    var sel = dice.filter(function (d) { return d.sel; });
+    var base = poolScore(held);
+    if (!sel.length) return { valid: false, count: 0, total: base, base: base, hot: false, label: null };
+    var all = held.concat(sel.map(function (d) { return { id: d.id, value: d.value }; }));
+    var total = poolScore(all);
+    var valid = true;
+    for (var i = 0; i < sel.length; i++) {
+      var without = all.filter(function (x) { return x.id !== sel[i].id; });
+      if (total <= poolScore(without)) { valid = false; break; }
+    }
+    var hot = all.length === 6, label = null;
+    if (hot) { var sp = specialOf(all); if (sp && sp.score === total) label = sp.name; }
+    return { valid: valid, count: sel.length, total: total, base: base, hot: hot, label: label };
+  }
+
+  function validOptions(held, dice) {
+    var opts = [], n = dice.length;
+    for (var m = 1; m < (1 << n); m++) {
+      var d = dice.map(function (x, i) { return { id: x.id, value: x.value, sel: !!(m & (1 << i)) }; });
+      var info = selInfo(held, d);
+      if (info.valid) opts.push({ mask: m, total: info.total, count: info.count, hot: info.hot });
+    }
+    return opts;
+  }
+
+  function bestOption(g) {
+    var opts = validOptions(g.held, g.dice), best = null;
+    opts.forEach(function (o) {
+      if (!best || o.total > best.total || (o.total === best.total && o.count < best.count)) best = o;
+    });
+    return best;
+  }
+
+  /* ---------- computer opponent (Monte Carlo look-ahead) ---------- */
+  var TH = [0, 300, 350, 450, 800, 2000, 4000];
+
+  function mulberry(a) {
+    return function () {
+      a |= 0; a = a + 0x6D2B79F5 | 0;
+      var t = Math.imul(a ^ a >>> 15, 1 | a);
+      t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+      return ((t ^ t >>> 14) >>> 0) / 4294967296;
+    };
+  }
+
+  // Simulate the rest of a turn with a simple policy; returns points banked (0 = bust)
+  function simTurn(c0, locked, rollNo, entryNeed, rng) {
+    var c = c0.slice();
+    for (var guard = 0; guard < 40; guard++) {
+      var held = sum7(c), r = 6 - held, rc = ZERO.slice(), i, f;
+      for (i = 0; i < r; i++) rc[1 + Math.floor(rng() * 6)]++;
+      rollNo++;
+      var hot = false, any = false, c2 = c.slice(), allC = c.slice();
+      for (f = 1; f <= 6; f++) {
+        var bestS = faceScore(f, c2[f]), bestK = 0;
+        for (var k = 1; k <= rc[f]; k++) {
+          var sc = faceScore(f, c2[f] + k);
+          if (sc > bestS) { bestS = sc; bestK = k; }
+        }
+        if (bestK > 0) { c2[f] += bestK; any = true; }
+        allC[f] += rc[f];
+      }
+      if (cScore(allC) > cScore(c2)) { c2 = allC; any = true; }
+      if (!any) return 0;
+      c = c2;
+      if (sum7(c) === 6) { locked += cScore(c); c = ZERO.slice(); hot = true; }
+      var total, r2 = 0;
+      if (hot) {
+        total = locked; rollNo = 0;
+        if (total >= 4000) return total;
+      } else {
+        total = locked + cScore(c);
+        r2 = 6 - sum7(c);
+        if (rollNo >= MAX_ROLLS) return (entryNeed && total < ENTRY) ? 0 : total;
+      }
+      if (!hot && !(entryNeed && total < ENTRY) && total >= TH[r2]) return total;
+    }
+    return locked;
+  }
+
+  // Every option is scored on the same random dice (same seeds), so luck can't favor one over another
+  function mcValue(counts, locked, rollNo, entryNeed, need, seed) {
+    var N = 6000, acc = 0;
+    for (var i = 0; i < N; i++) {
+      var v = simTurn(counts, locked, rollNo, entryNeed, mulberry(seed + i * 7919));
+      acc += need === null ? v : (v > need ? 1 : 0);
+    }
+    return need === null ? acc / N : (acc / N) * 100000;
+  }
+
+  // Choose which dice to keep and whether to roll again or bank
+  function aiPlan(g) {
+    var p = g.players[g.cur];
+    var all = validOptions(g.held, g.dice);
+    // Never keep an option that scores no more than another option while using as many or more dice
+    var opts = all.filter(function (a) {
+      return !all.some(function (b) {
+        return b !== a && b.count <= a.count && b.total >= a.total && (b.count < a.count || b.total > a.total);
+      });
+    });
+    if (!opts.length) opts = all;
+    var other = 0;
+    g.players.forEach(function (x, i) { if (i !== g.cur && x.score > other) other = x.score; });
+    var heldVals = g.held.map(function (d) { return d.value; });
+    var seed = Math.floor(Math.random() * 1e9);
+    var cache = {}, cands = [];
+    opts.forEach(function (o) {
+      var vals = [];
+      g.dice.forEach(function (d, i) { if (o.mask & (1 << i)) vals.push(d.value); });
+      var hot = g.held.length + o.count === 6;
+      var amount = g.locked + o.total;
+      var canBank = p.in || amount >= ENTRY;
+      var canRoll = hot || g.rollNo < MAX_ROLLS;
+      var val, action;
+      if (canBank && (p.score + amount >= TARGET || (g.final && p.score + amount > other))) {
+        val = 1e7 + amount; action = 'bank';
+      } else {
+        var rollVal = -1;
+        if (canRoll) {
+          var counts = countsOf(heldVals.concat(vals)), lockedAfter = g.locked, rn = g.rollNo;
+          if (hot) { lockedAfter = amount; counts = ZERO.slice(); rn = 0; }
+          var key = counts.join('') + '|' + lockedAfter + '|' + rn;
+          if (cache[key] === undefined) cache[key] = mcValue(counts, lockedAfter, rn, !p.in, g.final ? other - p.score : null, seed);
+          rollVal = cache[key];
+        }
+        var bankVal = g.final ? (canRoll ? -1 : 0) : (canBank ? amount : -1);
+        if (canRoll && rollVal >= bankVal) { val = rollVal; action = 'roll'; }
+        else { val = bankVal; action = 'bank'; }
+        if (!canRoll && !canBank) { val = 0; action = 'bank'; }
+      }
+      cands.push({ mask: o.mask, total: o.total, count: o.count, val: val, action: action });
+    });
+    var bv = -1e18;
+    cands.forEach(function (c) { if (c.val > bv) bv = c.val; });
+    // Near-ties go to the option that keeps more points
+    var tol = g.final ? 150 : 12, best = null;
+    cands.forEach(function (c) {
+      if (c.val >= bv - tol) {
+        if (!best || c.total > best.total || (c.total === best.total && c.count < best.count)) best = c;
+      }
+    });
+    return { mask: best.mask, action: best.action };
+  }
+
+  /* ---------- state helpers ---------- */
+  function rollFrom(p, held, locked) {
+    var heldIds = held.map(function (d) { return d.id; });
+    var dice = [0, 1, 2, 3, 4, 5]
+      .filter(function (i) { return heldIds.indexOf(i) === -1; })
+      .map(function (id) { return { id: id, value: rnd(), sel: false }; });
+    var special = held.length === 0 ? specialOf(dice) : null;
+    return Object.assign({}, p, {
+      held: held, locked: locked, dice: dice, special: special, plan: null,
+      rollNo: held.length === 0 ? 1 : p.rollNo + 1,
+      phase: 'rolling', rollKey: p.rollKey + 1, hot: held.length === 0 && locked > 0, end: null
+    });
+  }
+
+  function newGame(players) {
+    return {
+      screen: 'play',
+      players: players.map(function (p, i) {
+        var nm = (p.name || '').trim();
+        return { name: nm || (p.ai ? 'Computer' : 'Player ' + (i + 1)), ai: p.ai, score: 0, in: false };
+      }),
+      cur: 0, locked: 0, held: [], dice: [], special: null, plan: null, rollNo: 0,
+      phase: 'ready', rollKey: 0, final: null, end: null, hot: false
+    };
+  }
+
+  /* ---------- UI atoms ---------- */
+  function Die(props) {
+    var pips = PIPS[props.value] || [];
+    var look = DIE_LOOK[props.id];
+    var small = props.small;
+    var size = small
+      ? 'w-10 h-10 sm:w-11 sm:h-11 rounded-xl'
+      : 'w-[calc((100%-1.5rem)/3)] max-w-[68px] aspect-square sm:w-20 sm:max-w-none rounded-2xl';
+    var state = props.selected ? '-translate-y-1.5' : '';
+    var interactive = props.interactive;
+    var hover = interactive && !props.selected ? 'hover:-translate-y-0.5 cursor-pointer' : '';
+    var dim = props.dim ? 'opacity-55 saturate-50' : '';
+    var cells = [];
+    for (var i = 0; i < 9; i++) {
+      cells.push(h('div', { key: i, className: 'flex items-center justify-center' },
+        pips.indexOf(i) > -1 ? h('span', {
+          className: 'block w-[68%] aspect-square rounded-full',
+          style: { background: look.pip, boxShadow: '0 1px 1px rgba(0,0,0,0.25)' }
+        }) : null));
+    }
+    var label = COLOR_NAMES[props.id] + ' die showing ' + props.value + (props.selected ? ', selected' : '');
+    return h('button', {
+      type: 'button',
+      onClick: interactive ? props.onClick : undefined,
+      disabled: !interactive,
+      'aria-label': label,
+      'aria-pressed': interactive ? !!props.selected : undefined,
+      style: {
+        '--d': (props.delay || 0) + 'ms',
+        background: 'linear-gradient(145deg, ' + look.light + ', ' + look.base + ')',
+        border: '1px solid ' + look.edge,
+        boxShadow: props.selected
+          ? '0 0 0 2px #fafaf9, 0 0 0 5px #292524, 0 8px 16px rgba(41,37,36,0.22), inset 0 1px 0 rgba(255,255,255,0.4), inset 0 -3px 0 rgba(0,0,0,0.12)'
+          : '0 2px 4px rgba(41,37,36,0.18), inset 0 1px 0 rgba(255,255,255,0.4), inset 0 -3px 0 rgba(0,0,0,0.12)'
+      },
+      className: [
+        'relative shrink-0 transition duration-200 ease-out',
+        'focus:outline-none focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-stone-800 focus-visible:outline-offset-4',
+        'disabled:cursor-default', size, state, hover, dim, props.rolling ? 'die-rolling' : ''
+      ].join(' ')
+    },
+      h('div', { className: 'grid grid-cols-3 grid-rows-3 w-full h-full p-[15%]' }, cells),
+      props.selected ? h('span', { className: 'absolute -top-2 -right-2 w-5 h-5 sm:-top-2.5 sm:-right-2.5 sm:w-6 sm:h-6 rounded-full bg-stone-800 text-white flex items-center justify-center shadow-sm' },
+        h('svg', { viewBox: '0 0 20 20', className: 'w-3.5 h-3.5', fill: 'none', stroke: 'currentColor', strokeWidth: 3, strokeLinecap: 'round', strokeLinejoin: 'round' },
+          h('path', { d: 'M4 10.5l4 4 8-9' }))) : null
+    );
+  }
+
+  function Btn(props) {
+    var variants = {
+      primary: 'bg-emerald-700 hover:bg-emerald-800 text-white',
+      dark: 'bg-stone-800 hover:bg-stone-900 text-white',
+      ghost: 'bg-white hover:bg-stone-50 text-stone-700 border border-stone-200'
+    };
+    var sizes = props.small ? 'px-3.5 py-2 text-sm rounded-xl' : 'px-5 py-3 sm:px-6 sm:py-3.5 text-[15px] rounded-2xl whitespace-nowrap';
+    return h('button', {
+      type: 'button', onClick: props.onClick, disabled: props.disabled,
+      className: [
+        'font-semibold shadow-sm transition duration-150 active:scale-[0.98]',
+        'disabled:opacity-40 disabled:cursor-not-allowed disabled:active:scale-100',
+        'focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-700/60 focus-visible:ring-offset-2',
+        variants[props.variant || 'primary'], sizes, props.className || ''
+      ].join(' ')
+    }, props.children);
+  }
+
+  var panel = 'bg-white shadow-md border border-stone-200/60 rounded-3xl p-4 sm:p-8';
+
+  /* ---------- scoring guide modal ---------- */
+  var NEUTRAL = { light: '#faf8f4', base: '#ece7de', edge: '#cfc8ba', pip: '#334155' };
+  function Mini(props) {
+    var look = props.id === undefined ? NEUTRAL : DIE_LOOK[props.id];
+    var pips = PIPS[props.value], cells = [];
+    for (var i = 0; i < 9; i++) {
+      cells.push(h('div', { key: i, className: 'flex items-center justify-center' },
+        pips.indexOf(i) > -1 ? h('span', { className: 'block w-[70%] aspect-square rounded-full', style: { background: look.pip } }) : null));
+    }
+    return h('div', {
+      className: 'w-7 h-7 rounded-md shrink-0',
+      style: {
+        background: 'linear-gradient(145deg, ' + look.light + ', ' + look.base + ')',
+        border: '1px solid ' + look.edge,
+        boxShadow: '0 1px 1.5px rgba(41,37,36,0.15), inset 0 1px 0 rgba(255,255,255,0.5)'
+      }
+    }, h('div', { className: 'grid grid-cols-3 grid-rows-3 w-full h-full p-[14%]' }, cells));
+  }
+  function same(v, n) { var a = []; for (var i = 0; i < n; i++) a.push([v]); return a; }
+  var SCORE_ROWS = [
+    { d: [[5]], p: '50' },
+    { d: [[1]], p: '100' },
+    { d: same(2, 3), p: '200' },
+    { d: same(3, 3), p: '300' },
+    { d: same(4, 3), p: '400' },
+    { d: same(5, 3), p: '500' },
+    { d: same(6, 3), p: '600' },
+    { d: same(1, 3), p: '1,000' },
+    { d: [[2], [2], [4], [4], [6], [6]], p: '1,250', note: 'Any three pairs' },
+    { d: same(4, 4), p: '1,500', note: 'Any number' },
+    { d: same(1, 4), p: '2,000' },
+    { d: same(4, 5), p: '2,500', note: 'Any number' },
+    { d: same(1, 5), p: '3,000' },
+    { d: same(4, 6), p: '3,500', note: 'Any number' },
+    { d: same(1, 6), p: '4,000' },
+    { d: [[1], [2], [3], [4], [5], [6]], p: '5,000', note: 'Straight' },
+    { d: [[1, 0], [2, 1], [3, 2], [4, 3], [5, 4], [6, 5]], p: '10,000', note: 'Each die shows its own number' }
+  ];
+
+  function Rules(props) {
+    useEffect(function () {
+      function onKey(e) { if (e.key === 'Escape') props.onClose(); }
+      window.addEventListener('keydown', onKey);
+      return function () { window.removeEventListener('keydown', onKey); };
+    }, []);
+    function row(r, i) {
+      return h('div', { key: i, className: 'break-inside-avoid flex items-center justify-between gap-3 py-2.5 border-b border-stone-100' },
+        h('div', { className: 'min-w-0' },
+          h('div', { className: 'flex gap-1' }, r.d.map(function (d, j) { return h(Mini, { key: j, value: d[0], id: d[1] }); })),
+          r.note ? h('p', { className: 'mt-1 text-xs text-stone-400' }, r.note) : null),
+        h('span', { className: 'font-semibold text-stone-800 tnum text-[15px] shrink-0' }, r.p));
+    }
+    function note(title, text) {
+      return h('p', null, h('span', { className: 'font-semibold text-stone-900' }, title + ' '), text);
+    }
+    return h('div', {
+      className: 'fixed inset-0 z-50 bg-stone-900/30 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-6',
+      onClick: props.onClose
+    },
+      h('div', {
+        role: 'dialog', 'aria-modal': 'true', 'aria-label': 'How to play',
+        onClick: function (e) { e.stopPropagation(); },
+        className: 'settle bg-white rounded-t-3xl sm:rounded-3xl shadow-xl border border-stone-200/60 w-full max-w-2xl max-h-[90vh] overflow-y-auto p-5 pb-[calc(1.5rem+env(safe-area-inset-bottom))] sm:p-9'
+      },
+        h('div', { className: 'flex items-start justify-between gap-4 mb-5' },
+          h('div', null,
+            h('h2', { className: 'text-2xl font-extrabold tracking-tight text-stone-900' }, 'How to play'),
+            h('p', { className: 'mt-1 text-stone-500 text-[15px]' }, 'First to 10,000 wins. Your kept dice are re-scored after every roll.')),
+          h(Btn, { variant: 'ghost', small: true, onClick: props.onClose }, 'Close')),
+        h('h3', { className: 'font-bold text-stone-900' }, 'Scoring'),
+        h('div', { className: 'mt-1 sm:columns-2 sm:gap-x-10' }, SCORE_ROWS.map(row)),
+        h('p', { className: 'mt-3 text-sm leading-relaxed text-stone-500' },
+          'Every die has its own color: red 1, yellow 2, green 3, blue 4, orange 5, purple 6. For the Rainbow, all six dice must show their own color’s number.'),
+        h('div', { className: 'mt-6 space-y-3 text-[15px] leading-relaxed text-stone-600' },
+          note('Pooling.', 'Keep a 1, then roll two more 1s and you now hold three 1s, worth 1,000. Hold a fourth and the pool is worth 2,000. Three pairs, the straight and the Rainbow pool too, so you can build them across rolls.'),
+          note('Three rolls.', 'You get three rolls, then you must bank. Keep all six dice scoring and you can roll all six again, and the count starts over.'),
+          note('Every kept die must score.', 'After each roll, keep at least one scoring die, then roll the rest or bank.'),
+          note('Hot dice.', 'Keep all six and that score is locked in. You roll all six fresh and keep adding.'),
+          note('Bust.', 'If a roll has nothing you can keep, you lose every point from the turn.'),
+          note('Getting on the board.', 'You need 500 in a single turn before you can bank for the first time.'),
+          note('Final round.', 'When someone reaches 10,000, everyone else gets one last turn to beat them.')))
+    );
+  }
+
+  /* ---------- setup screen ---------- */
+  function Setup(props) {
+    var cfg = props.cfg, setCfg = props.setCfg;
+    function update(i, patch) {
+      setCfg(cfg.map(function (p, j) { return j === i ? Object.assign({}, p, patch) : p; }));
+    }
+    function seg(i, ai, text) {
+      var on = cfg[i].ai === ai;
+      return h('button', {
+        type: 'button', onClick: function () { update(i, { ai: ai }); },
+        'aria-pressed': on,
+        className: 'flex-1 sm:flex-none px-3.5 py-2.5 sm:py-2 text-sm font-semibold rounded-lg transition focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-700/60 ' +
+          (on ? 'bg-white text-stone-900 shadow-sm' : 'text-stone-500 hover:text-stone-800')
+      }, text);
+    }
+    return h('div', { className: 'max-w-xl mx-auto' },
+      h('div', { className: panel + ' sm:p-10' },
+        h('div', { className: 'flex gap-1.5 sm:gap-2 mb-6', 'aria-hidden': 'true' },
+          [0, 1, 2, 3, 4, 5].map(function (i) { return h(Die, { key: i, id: i, value: i + 1, small: true }); })),
+        h('h1', { className: 'text-4xl font-extrabold tracking-tight text-stone-900' }, '10K Tumble'),
+        h('p', { className: 'mt-3 text-[16px] sm:text-[17px] leading-relaxed text-stone-500 max-w-md' },
+          'Keep what scores, roll the rest, and watch your pool re-score after every roll. First to 10,000 wins.'),
+        h('div', { className: 'mt-8 space-y-4 sm:space-y-3' },
+          cfg.map(function (p, i) {
+            return h('div', { key: i, className: 'flex flex-wrap sm:flex-nowrap items-center gap-2 sm:gap-3' },
+              h('input', {
+                value: p.name, maxLength: 16, 'aria-label': 'Name for seat ' + (i + 1),
+                placeholder: p.ai ? 'Computer' : 'Player ' + (i + 1),
+                onChange: function (e) { update(i, { name: e.target.value }); },
+                className: 'order-1 min-w-0 flex-1 basis-[60%] rounded-xl border border-stone-200 bg-stone-50 px-4 py-3 text-base font-medium text-stone-800 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-emerald-700/30 focus:border-emerald-700/50'
+              }),
+              h('div', { className: 'order-3 sm:order-2 flex w-full sm:w-auto shrink-0 bg-stone-100 rounded-xl p-1' }, seg(i, false, 'Person'), seg(i, true, 'Computer')),
+              cfg.length > 2 ? h('button', {
+                type: 'button', 'aria-label': 'Remove seat ' + (i + 1),
+                onClick: function () { setCfg(cfg.filter(function (_, j) { return j !== i; })); },
+                className: 'order-2 sm:order-3 shrink-0 w-11 h-11 sm:w-9 sm:h-9 rounded-xl text-stone-400 hover:text-stone-700 hover:bg-stone-100 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-700/60'
+              }, h('svg', { viewBox: '0 0 20 20', className: 'w-4 h-4 mx-auto', fill: 'none', stroke: 'currentColor', strokeWidth: 2, strokeLinecap: 'round' }, h('path', { d: 'M5 5l10 10M15 5L5 15' }))) : null
+            );
+          })),
+        cfg.length < 4 ? h('button', {
+          type: 'button',
+          onClick: function () { setCfg(cfg.concat([{ name: '', ai: false }])); },
+          className: 'mt-4 py-2 text-sm font-semibold text-emerald-800 hover:text-emerald-900 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-700/60'
+        }, 'Add a player') : null,
+        h('div', { className: 'mt-7 flex flex-col sm:flex-row gap-3' },
+          h(Btn, { onClick: props.onStart }, 'Start game'),
+          h(Btn, { variant: 'ghost', onClick: props.onRules }, 'How to play')))
+    );
+  }
+
+  /* ---------- scoreboards ---------- */
+  function Scoreboard(props) {
+    var g = props.g;
+    return h('div', { className: panel + ' hidden lg:block' },
+      h('h2', { className: 'text-lg font-bold tracking-tight text-stone-900' }, 'Scoreboard'),
+      h('div', { className: 'mt-5 space-y-3' },
+        g.players.map(function (p, i) {
+          var active = g.screen === 'play' && i === g.cur;
+          var pct = Math.min(100, Math.round(p.score / TARGET * 100));
+          return h('div', {
+            key: i,
+            className: 'rounded-2xl border px-4 py-3.5 transition ' + (active ? 'border-emerald-700/25 bg-emerald-50/60' : 'border-stone-200/70 bg-white')
+          },
+            h('div', { className: 'flex items-baseline justify-between gap-3' },
+              h('div', { className: 'min-w-0 flex items-center gap-2' },
+                h('span', { className: 'w-2 h-2 rounded-full shrink-0 ' + (active ? 'bg-emerald-700' : 'bg-stone-300') }),
+                h('span', { className: 'font-semibold text-stone-900 truncate' }, p.name),
+                p.ai ? h('span', { className: 'text-xs font-medium text-stone-500 bg-stone-100 rounded-md px-1.5 py-0.5' }, 'CPU') : null),
+              h('span', { className: 'text-xl font-extrabold tracking-tight text-stone-900 tnum' }, fmt(p.score))),
+            h('div', { className: 'mt-2.5 h-1.5 rounded-full bg-stone-200/80 overflow-hidden' },
+              h('div', { className: 'h-full rounded-full bg-emerald-700 transition-all duration-500', style: { width: pct + '%' } })),
+            h('div', { className: 'mt-2 text-xs text-stone-500' }, p.in ? 'On the board' : 'Needs 500 in one turn to start'));
+        })));
+  }
+
+  // Compact scores for phones
+  function ScoreStrip(props) {
+    var g = props.g, n = g.players.length;
+    var cols = n === 4 ? 2 : n;
+    return h('div', { className: 'lg:hidden grid gap-2 mb-2', style: { gridTemplateColumns: 'repeat(' + cols + ', minmax(0, 1fr))' } },
+      g.players.map(function (p, i) {
+        var active = g.screen === 'play' && i === g.cur;
+        var pct = Math.min(100, Math.round(p.score / TARGET * 100));
+        return h('div', {
+          key: i,
+          className: 'rounded-2xl border px-3 py-2 bg-white transition ' + (active ? 'border-emerald-700/40 ring-1 ring-emerald-700/20 bg-emerald-50/60' : 'border-stone-200/70')
+        },
+          h('div', { className: 'flex items-center gap-1.5 min-w-0' },
+            h('span', { className: 'w-1.5 h-1.5 rounded-full shrink-0 ' + (active ? 'bg-emerald-700' : 'bg-stone-300') }),
+            h('span', { className: 'text-xs font-semibold text-stone-600 truncate' }, p.name)),
+          h('div', { className: 'flex items-baseline justify-between gap-2' },
+            h('span', { className: 'text-lg font-extrabold tracking-tight text-stone-900 tnum leading-tight' }, fmt(p.score)),
+            !p.in ? h('span', { className: 'text-[11px] text-stone-500 whitespace-nowrap' }, 'Needs 500') : null),
+          h('div', { className: 'mt-1 h-1 rounded-full bg-stone-200/80 overflow-hidden' },
+            h('div', { className: 'h-full rounded-full bg-emerald-700 transition-all duration-500', style: { width: pct + '%' } })));
+      }));
+  }
+
+  /* ---------- app ---------- */
+  function App() {
+    var s1 = useState([{ name: 'Player 1', ai: false }, { name: 'Computer', ai: true }]);
+    var cfg = s1[0], setCfg = s1[1];
+    var s2 = useState({ screen: 'setup' });
+    var g = s2[0], setG = s2[1];
+    var s3 = useState([1, 2, 3, 4, 5, 6]);
+    var scr = s3[0], setScr = s3[1];
+    var s4 = useState(false);
+    var rules = s4[0], setRules = s4[1];
+    var s5 = useState(false);
+    var confirmNew = s5[0], setConfirmNew = s5[1];
+
+    /* actions */
+    function startGame() { setG(newGame(cfg)); }
+
+    function doRoll() {
+      setG(function (p) { return p.phase === 'ready' ? rollFrom(p, [], 0) : p; });
+    }
+
+    function finishRoll() {
+      setG(function (p) {
+        if (p.phase !== 'rolling') return p;
+        if (p.special) {
+          return Object.assign({}, p, {
+            dice: p.dice.map(function (d) { return { id: d.id, value: d.value, sel: true }; }),
+            phase: 'choose'
+          });
+        }
+        var opts = validOptions(p.held, p.dice);
+        if (!opts.length) {
+          var lost = p.locked + poolScore(p.held);
+          return Object.assign({}, p, { phase: 'turnEnd', end: { type: 'bust', points: lost } });
+        }
+        return Object.assign({}, p, { phase: 'choose' });
+      });
+    }
+
+    function toggle(id) {
+      setG(function (p) {
+        if (p.phase !== 'choose') return p;
+        return Object.assign({}, p, {
+          dice: p.dice.map(function (d) { return d.id === id ? { id: d.id, value: d.value, sel: !d.sel } : d; })
+        });
+      });
+    }
+
+    function autoPick() {
+      setG(function (p) {
+        if (p.phase !== 'choose') return p;
+        var o = bestOption(p);
+        if (!o) return p;
+        return Object.assign({}, p, {
+          dice: p.dice.map(function (d, i) { return { id: d.id, value: d.value, sel: !!(o.mask & (1 << i)) }; })
+        });
+      });
+    }
+
+    function rollAgain() {
+      setG(function (p) {
+        if (p.phase !== 'choose') return p;
+        var info = selInfo(p.held, p.dice);
+        if (!info.valid) return p;
+        if (!info.hot && p.rollNo >= MAX_ROLLS) return p;
+        var kept = p.dice.filter(function (d) { return d.sel; }).map(function (d) { return { id: d.id, value: d.value }; });
+        var newHeld = p.held.concat(kept);
+        if (newHeld.length === 6) return rollFrom(p, [], p.locked + info.total);
+        return rollFrom(p, newHeld, p.locked);
+      });
+    }
+
+    function bank() {
+      setG(function (p) {
+        if (p.phase !== 'choose') return p;
+        var info = selInfo(p.held, p.dice);
+        if (!info.valid) return p;
+        var amount = p.locked + info.total;
+        var me = p.players[p.cur];
+        var kept = p.dice.filter(function (d) { return d.sel; }).map(function (d) { return { id: d.id, value: d.value }; });
+        var rest = p.dice.filter(function (d) { return !d.sel; });
+        if (!me.in && amount < ENTRY) {
+          if (info.hot || p.rollNo < MAX_ROLLS) return p;
+          return Object.assign({}, p, {
+            phase: 'turnEnd', held: p.held.concat(kept), dice: rest,
+            end: { type: 'bust', points: amount, short: true }
+          });
+        }
+        var players = p.players.map(function (x, i) {
+          return i === p.cur ? Object.assign({}, x, { score: x.score + amount, in: true }) : x;
+        });
+        var final = p.final, hit = false;
+        if (!final && players[p.cur].score >= TARGET) { final = { trigger: p.cur, done: [p.cur] }; hit = true; }
+        return Object.assign({}, p, {
+          players: players, final: final, phase: 'turnEnd',
+          held: p.held.concat(kept), dice: rest,
+          end: { type: 'bank', points: amount, hit: hit }
+        });
+      });
+    }
+
+    function nextTurn() {
+      setG(function (p) {
+        if (p.phase !== 'turnEnd') return p;
+        var n = p.players.length, final = p.final;
+        if (final && final.done.indexOf(p.cur) === -1) final = { trigger: final.trigger, done: final.done.concat([p.cur]) };
+        if (final && final.done.length >= n) return Object.assign({}, p, { final: final, screen: 'over', phase: 'over' });
+        var next = (p.cur + 1) % n;
+        while (final && final.done.indexOf(next) > -1) next = (next + 1) % n;
+        return Object.assign({}, p, {
+          final: final, cur: next, locked: 0, held: [], dice: [], special: null, plan: null, rollNo: 0,
+          phase: 'ready', end: null, hot: false
+        });
+      });
+    }
+
+    function playAgain() {
+      setG(function (p) { return newGame(p.players.map(function (x) { return { name: x.name, ai: x.ai }; })); });
+    }
+
+    function toSetup() { setG({ screen: 'setup' }); setConfirmNew(false); }
+
+    /* effects */
+    useEffect(function () {
+      if (g.phase !== 'rolling') return;
+      var iv = setInterval(function () { setScr([rnd(), rnd(), rnd(), rnd(), rnd(), rnd()]); }, 80);
+      var to = setTimeout(finishRoll, ROLL_MS);
+      return function () { clearInterval(iv); clearTimeout(to); };
+    }, [g.phase, g.rollKey]);
+
+    useEffect(function () {
+      if (g.screen !== 'play') return;
+      var p = g.players[g.cur];
+      if (!p || !p.ai) return;
+      var t;
+      if (g.phase === 'ready') {
+        t = setTimeout(doRoll, 900);
+      } else if (g.phase === 'choose') {
+        if (!g.plan) {
+          t = setTimeout(function () {
+            var pl = aiPlan(g);
+            setG(function (q) {
+              if (q.phase !== 'choose' || q.rollKey !== g.rollKey || !pl) return q;
+              return Object.assign({}, q, {
+                plan: pl.action,
+                dice: q.dice.map(function (d, i) { return { id: d.id, value: d.value, sel: !!(pl.mask & (1 << i)) }; })
+              });
+            });
+          }, 1000);
+        } else {
+          t = setTimeout(function () { if (g.plan === 'roll') rollAgain(); else bank(); }, 1100);
+        }
+      } else if (g.phase === 'turnEnd') {
+        t = setTimeout(nextTurn, 1900);
+      }
+      return function () { clearTimeout(t); };
+    }, [g]);
+
+    useEffect(function () {
+      if (!confirmNew) return;
+      var t = setTimeout(function () { setConfirmNew(false); }, 3000);
+      return function () { clearTimeout(t); };
+    }, [confirmNew]);
+
+    /* ---------- render ---------- */
+    var rulesModal = rules ? h(Rules, { onClose: function () { setRules(false); } }) : null;
+
+    if (g.screen === 'setup') {
+      return h('div', { className: 'px-3 sm:px-4 py-6 sm:py-16' },
+        h(Setup, { cfg: cfg, setCfg: setCfg, onStart: startGame, onRules: function () { setRules(true); } }),
+        rulesModal);
+    }
+
+    var n = g.players.length;
+    var cur = g.players[g.cur];
+    var isAI = cur.ai;
+    var rolling = g.phase === 'rolling';
+    var choose = g.phase === 'choose';
+    var turnEnd = g.phase === 'turnEnd';
+    var bust = turnEnd && g.end && g.end.type === 'bust';
+    var heldScore = poolScore(g.held);
+    var info = choose ? selInfo(g.held, g.dice) : null;
+
+    var shown;
+    if (turnEnd) shown = g.end.type === 'bank' ? g.end.points : 0;
+    else if (choose && info.valid) shown = g.locked + info.total;
+    else shown = g.locked + heldScore;
+
+    var delta = choose && info.valid ? info.total - heldScore : 0;
+    var amount = choose && info.valid ? g.locked + info.total : 0;
+    var used = choose ? g.held.length + info.count : 0;
+    var remain = used === 6 ? 6 : 6 - used;
+    var moreRolls = choose && info.valid && (info.hot || g.rollNo < MAX_ROLLS);
+    var needEntry = choose && info.valid && !cur.in && amount < ENTRY;
+
+    var leader = 0;
+    g.players.forEach(function (x) { if (x.score > leader) leader = x.score; });
+
+    // status line
+    var msg = '', sub = '', tone = 'text-stone-600';
+    if (g.phase === 'ready') {
+      msg = isAI ? cur.name + ' is about to roll.' : cur.name + ', roll the dice to start your turn.';
+    } else if (rolling) {
+      msg = g.hot ? 'Hot dice. Rolling all six again.' : 'Tumbling.';
+    } else if (choose) {
+      if (!info.count) {
+        msg = isAI ? cur.name + ' is choosing.' : 'Tap the scoring dice you want to keep.';
+      } else if (!info.valid) {
+        msg = 'Every die you keep has to score.';
+        tone = 'text-rose-700';
+      } else if (info.label) {
+        msg = info.label + '. ' + fmt(info.total) + ' points.';
+        tone = 'text-emerald-800';
+      } else if (info.hot) {
+        msg = 'Hot dice. Roll all six fresh, or bank.';
+        tone = 'text-emerald-800';
+      } else if (!moreRolls) {
+        msg = 'Last roll of this set. Time to bank.';
+      } else {
+        msg = 'Keep ' + used + ' and roll the other ' + remain + ', or bank.';
+      }
+      if (needEntry) sub = moreRolls
+        ? 'You need ' + fmt(ENTRY - amount) + ' more to get on the board, so keep rolling.'
+        : 'Out of rolls and under 500, so this turn scores nothing.';
+    } else if (turnEnd) {
+      if (bust && g.end.short) {
+        msg = cur.name + ' ended under 500 and scores nothing.';
+        tone = 'text-rose-700';
+      } else if (bust) {
+        msg = 'Bust. ' + cur.name + (g.end.points ? ' loses ' + fmt(g.end.points) + ' points.' : ' has nothing to keep.');
+        tone = 'text-rose-700';
+      } else {
+        msg = cur.name + ' banked ' + fmt(g.end.points) + '.';
+        tone = 'text-emerald-800';
+        if (g.end.hit) sub = cur.name + ' reached 10,000. Everyone else gets one more turn.';
+      }
+    }
+
+    var willEnd = g.final && (g.final.done.length + (g.final.done.indexOf(g.cur) > -1 ? 0 : 1)) >= n;
+
+    /* tray */
+    var dieSize = 'w-[calc((100%-1.5rem)/3)] max-w-[68px] aspect-square sm:w-20 sm:max-w-none rounded-2xl';
+    var tray;
+    if (g.phase === 'ready') {
+      tray = [0, 1, 2, 3, 4, 5].map(function (i) {
+        return h('div', { key: i, className: dieSize + ' border border-dashed border-stone-300 bg-stone-100/50' });
+      });
+    } else {
+      tray = g.dice.map(function (d, i) {
+        return h(Die, {
+          key: g.rollKey + '-' + d.id, id: d.id,
+          value: rolling ? scr[d.id] : d.value,
+          selected: d.sel, rolling: rolling, delay: (i * 37) % 110,
+          interactive: choose && !isAI, dim: turnEnd,
+          onClick: function () { toggle(d.id); }
+        });
+      });
+    }
+
+    var rollLabelText = g.phase === 'ready' ? 'Up to 3 rolls' : 'Roll ' + g.rollNo + ' of 3';
+    var rollDots = h('span', { className: 'flex items-center gap-1.5 mt-1' },
+      [1, 2, 3].map(function (i) {
+        return h('span', { key: i, className: 'w-2 h-2 rounded-full transition-colors ' + (i <= g.rollNo ? 'bg-emerald-700' : 'bg-stone-300') });
+      }),
+      h('span', { className: 'ml-1 text-sm text-stone-500' }, rollLabelText));
+
+    var mainBody, actionBar = null;
+    if (g.screen === 'over') {
+      var best = 0;
+      g.players.forEach(function (x) { if (x.score > best) best = x.score; });
+      var winners = g.players.filter(function (x) { return x.score === best; });
+      mainBody = h('div', { className: 'settle text-center py-8 sm:py-12' },
+        h('p', { className: 'text-stone-500 text-[15px]' }, winners.length > 1 ? 'It’s a tie' : 'Winner'),
+        h('h2', { className: 'mt-2 text-4xl sm:text-5xl font-extrabold tracking-tight text-stone-900 break-words' },
+          winners.map(function (x) { return x.name; }).join(' and ')),
+        h('p', { className: 'mt-3 text-2xl font-bold text-emerald-800 tnum' }, fmt(best) + ' points'),
+        h('div', { className: 'mt-9 flex flex-col sm:flex-row sm:justify-center gap-3' },
+          h(Btn, { onClick: playAgain }, 'Play again'),
+          h(Btn, { variant: 'ghost', onClick: toSetup }, 'Change players')));
+    } else {
+      var buttons;
+      if (isAI) {
+        buttons = null;
+      } else if (g.phase === 'ready') {
+        buttons = h(Btn, { onClick: doRoll, className: 'w-full sm:w-auto' }, 'Roll the dice');
+      } else if (turnEnd) {
+        buttons = h(Btn, { onClick: nextTurn, className: 'w-full sm:w-auto' }, willEnd ? 'See results' : 'Pass the dice');
+      } else if (choose) {
+        var rollLabel = !info.valid ? 'Roll again' : info.hot ? 'Roll all six' : !moreRolls ? 'No rolls left' : 'Roll ' + remain + (remain === 1 ? ' die' : ' dice');
+        var bankLabel = !info.valid ? 'Bank' : (needEntry && !moreRolls) ? 'End turn' : 'Bank ' + fmt(amount);
+        buttons = h('div', { className: 'flex gap-3 justify-center' },
+          h(Btn, { onClick: rollAgain, disabled: !moreRolls, className: 'flex-1 sm:flex-none sm:min-w-[150px]' }, rollLabel),
+          h(Btn, { variant: 'dark', onClick: bank, disabled: !info.valid || (needEntry && moreRolls), className: 'flex-1 sm:flex-none sm:min-w-[150px]' }, bankLabel));
+      }
+      actionBar = buttons ? h('div', {
+        className: 'fixed bottom-0 inset-x-0 z-40 bg-white border-t border-stone-200 shadow-[0_-6px_20px_rgba(41,37,36,0.06)] px-4 pt-2.5 pb-[calc(0.625rem+env(safe-area-inset-bottom))] sm:static sm:shadow-none sm:bg-transparent sm:border-0 sm:p-0 sm:mt-5'
+      }, h('div', { className: 'max-w-md mx-auto sm:max-w-none' }, buttons)) : null;
+
+      mainBody = h('div', null,
+        h('div', { className: 'flex items-start justify-between gap-3' },
+          h('div', { className: 'min-w-0' },
+            h('h2', { className: 'text-xl sm:text-2xl font-extrabold tracking-tight text-stone-900 truncate' },
+              cur.name + (cur.name.slice(-1).toLowerCase() === 's' ? '’ turn' : '’s turn')),
+            rollDots),
+          h('div', { className: 'text-right shrink-0' },
+            h('p', { className: 'text-xs sm:text-sm text-stone-500' }, 'Turn score'),
+            h('p', {
+              key: 'ts' + shown,
+              className: 'bump text-3xl sm:text-4xl font-extrabold tracking-tight tnum leading-tight ' + (bust ? 'text-rose-700' : 'text-stone-900')
+            }, fmt(shown)),
+            h('p', { className: 'text-sm font-semibold text-emerald-800 tnum h-5' }, choose && info.valid && delta > 0 ? '+' + fmt(delta) : ''))),
+
+        h('div', { className: 'mt-3 sm:mt-6 flex items-center flex-wrap gap-2 min-h-[40px] sm:min-h-[56px]' },
+          h('span', { className: 'text-sm font-semibold text-stone-700 mr-1' }, 'Kept'),
+          g.held.map(function (d) { return h(Die, { key: 'h' + d.id, id: d.id, value: d.value, small: true, held: true }); }),
+          h('span', { className: 'ml-auto text-sm text-stone-500 tnum' },
+            (g.locked > 0 ? 'Locked in ' + fmt(g.locked) + (heldScore > 0 ? ', ' : '') : '') + (heldScore > 0 ? 'Pool ' + fmt(heldScore) : (g.locked > 0 ? '' : 'Nothing kept yet')))),
+
+        h('div', {
+          className: 'mt-3 sm:mt-5 rounded-2xl border px-3 sm:px-6 py-4 sm:py-8 min-h-[182px] sm:min-h-[150px] flex items-center justify-center transition-colors duration-300 ' +
+            (bust ? 'border-rose-200 bg-rose-50/60' : 'border-stone-200/70 bg-stone-50')
+        },
+          h('div', { className: 'flex flex-wrap justify-center gap-3 sm:gap-4 w-full max-w-[300px] sm:max-w-none' }, tray)),
+
+        h('div', { className: 'mt-3 sm:mt-5 text-center min-h-[64px]', 'aria-live': 'polite' },
+          h('p', { key: g.phase + g.rollKey + msg, className: 'settle text-[15px] sm:text-[16px] font-semibold ' + tone },
+            isAI && !turnEnd ? h('span', { className: 'inline-block w-2 h-2 rounded-full bg-emerald-700 animate-pulse mr-2 align-middle' }) : null, msg),
+          sub ? h('p', { className: 'mt-1 text-sm text-stone-500' }, sub) : null,
+          choose && !isAI ? h('button', {
+            type: 'button', onClick: autoPick,
+            className: 'mt-1 px-3 py-1.5 text-sm font-semibold text-emerald-800 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-700/60'
+          }, 'Pick best') : null));
+    }
+
+    var finalBanner = g.final && g.screen === 'play'
+      ? h('div', { className: 'settle mb-2 sm:mb-3 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-2 sm:py-3 text-sm sm:text-[15px] text-amber-900' },
+          h('span', { className: 'font-bold' }, 'Final round. '),
+          'Everyone else gets one more turn to beat ' + fmt(leader) + '.')
+      : null;
+
+    var confirmLabel = confirmNew ? 'Tap to confirm' : 'New game';
+
+    return h('div', { className: 'px-3 sm:px-4 pt-3 sm:pt-12 ' + (g.screen === 'play' && !isAI ? 'pb-28 sm:pb-12' : 'pb-8 sm:pb-12') },
+      h('div', { className: 'max-w-5xl mx-auto' },
+        h('header', { className: 'flex items-center justify-between gap-3 mb-2.5 sm:mb-7' },
+          h('div', { className: 'flex items-center gap-3 min-w-0' },
+            h('h1', { className: 'text-xl sm:text-3xl font-extrabold tracking-tight text-stone-900' }, '10K Tumble'),
+            h('span', { className: 'hidden sm:inline text-sm text-stone-500 bg-white border border-stone-200/70 rounded-full px-3 py-1' }, 'First to ' + fmt(TARGET))),
+          h('div', { className: 'flex items-center gap-2 shrink-0' },
+            h(Btn, { variant: 'ghost', small: true, onClick: function () { setRules(true); } }, 'Rules'),
+            h(Btn, { variant: 'ghost', small: true, onClick: function () { if (confirmNew || g.screen === 'over') toSetup(); else setConfirmNew(true); } }, confirmLabel))),
+        h(ScoreStrip, { g: g }),
+        finalBanner,
+        h('div', { className: 'grid lg:grid-cols-[1fr_320px] gap-5 sm:gap-6 items-start' },
+          h('main', { className: panel }, mainBody, g.screen === 'over' ? null : actionBar),
+          h(Scoreboard, { g: g }))),
+      rulesModal);
+  }
+
+  ReactDOM.createRoot(document.getElementById('root')).render(h(App));
+})();
+</script>
+</body>
+</html>
