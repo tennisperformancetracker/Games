@@ -604,11 +604,11 @@ tailwind.config = {
     }
     return h('div', { className: 'max-w-xl mx-auto' },
       h('div', { className: panel + ' sm:p-10' },
-        h('div', { className: 'flex items-start justify-between gap-3 mb-6' },
-          h('div', { className: 'flex gap-1.5 sm:gap-2', 'aria-hidden': 'true' },
-            [0, 1, 2, 3, 4, 5].map(function (i) { return h(Die, { key: i, id: i, value: i + 1, small: true }); })),
-          h(ThemeBtn, { theme: props.theme, onClick: props.onTheme })),
-        h('h1', { className: 'text-4xl font-extrabold tracking-tight text-stone-900' }, '10K Tumble'),
+        h('div', { className: 'flex gap-1.5 sm:gap-2 mb-6', 'aria-hidden': 'true' },
+          [0, 1, 2, 3, 4, 5].map(function (i) { return h(Die, { key: i, id: i, value: i + 1, small: true }); })),
+        h('div', { className: 'flex items-start justify-between gap-3' },
+          h('h1', { className: 'text-4xl font-extrabold tracking-tight text-stone-900' }, '10K Tumble'),
+          h(ThemeBtn, { theme: props.theme, onClick: props.onTheme, small: true })),
         h('p', { className: 'mt-3 text-[16px] sm:text-[17px] leading-relaxed text-stone-500 max-w-md' },
           'Keep what scores, roll the rest, and watch your pool re-score after every roll. First to 10,000 wins.'),
         h('div', { className: 'mt-8 space-y-4 sm:space-y-3' },
@@ -967,12 +967,11 @@ tailwind.config = {
     }
 
     var rollLabelText = g.phase === 'ready' ? 'Up to 3 rolls' : 'Roll ' + g.rollNo + ' of 3';
-    var rollDots = h('div', { className: 'flex items-center gap-1.5 mt-1.5' },
+    var rollDots = h('div', { className: 'flex items-center gap-1.5 pb-1.5' },
       [1, 2, 3].map(function (i) {
         return h('span', { key: i, className: 'w-2 h-2 rounded-full transition-colors ' + (i <= g.rollNo ? 'bg-emerald-700' : 'bg-stone-300') });
       }),
-      h('span', { className: 'ml-1 mr-1.5 text-sm text-stone-500' }, rollLabelText),
-      h(ThemeBtn, { theme: theme, onClick: toggleTheme, small: true }));
+      h('span', { className: 'ml-1 text-sm text-stone-500' }, rollLabelText));
 
     var mainBody, actionBar = null;
     if (g.screen === 'over') {
@@ -1008,18 +1007,20 @@ tailwind.config = {
       }, h('div', { className: 'max-w-md mx-auto sm:max-w-none' }, buttons)) : null;
 
       mainBody = h('div', null,
-        h('div', { className: 'flex items-start justify-between gap-3' },
-          h('div', { className: 'min-w-0' },
-            h('h2', { className: 'text-xl sm:text-2xl font-extrabold tracking-tight text-stone-900 truncate' },
-              cur.name + (cur.name.slice(-1).toLowerCase() === 's' ? '’ turn' : '’s turn')),
-            rollDots),
+        h('div', { className: 'flex items-center justify-between gap-3' },
+          h('h2', { className: 'min-w-0 text-xl sm:text-2xl font-extrabold tracking-tight text-stone-900 truncate' },
+            cur.name + (cur.name.slice(-1).toLowerCase() === 's' ? '’ turn' : '’s turn')),
+          h(ThemeBtn, { theme: theme, onClick: toggleTheme, small: true })),
+        h('div', { className: 'mt-1.5 flex items-end justify-between gap-3' },
+          rollDots,
           h('div', { className: 'text-right shrink-0' },
-            h('p', { className: 'text-xs sm:text-sm text-stone-500' }, 'Turn score'),
+            h('div', { className: 'flex items-baseline justify-end gap-2 text-xs sm:text-sm' },
+              h('span', { className: 'text-stone-500' }, 'Turn score'),
+              h('span', { className: 'font-semibold text-good tnum' }, choose && info.valid && delta > 0 ? '+' + fmt(delta) : '')),
             h('p', {
               key: 'ts' + shown,
-              className: 'bump text-3xl sm:text-4xl font-extrabold tracking-tight tnum leading-tight ' + (bust ? 'text-rose-700' : 'text-stone-900')
-            }, fmt(shown)),
-            h('p', { className: 'text-sm font-semibold text-good tnum h-5' }, choose && info.valid && delta > 0 ? '+' + fmt(delta) : ''))),
+              className: 'bump mt-0.5 text-3xl sm:text-4xl font-extrabold tracking-tight tnum leading-none ' + (bust ? 'text-rose-700' : 'text-stone-900')
+            }, fmt(shown)))),
 
         h('div', { className: 'mt-3 sm:mt-6 flex items-center flex-wrap gap-2 min-h-[40px] sm:min-h-[56px]' },
           h('span', { className: 'text-sm font-semibold text-stone-700 mr-1' }, 'Kept'),
